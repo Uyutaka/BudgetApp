@@ -1,0 +1,44 @@
+// Higher order component (HOC)
+// a component that renders another component
+// reuse code
+// render hijacking
+// prop manipulation
+// abstract state
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const Info = (props) => (
+    <div>
+        <h1>info</h1>
+        <p>The info is {props.info}</p>
+    </div>
+);
+
+const withAdminWarning = (WrappedComponent) => {
+    return (props) => (
+        <div>
+            {props.isAdmin && <p>Private Info</p>}
+            <WrappedComponent {...props}/>
+        </div>
+    )
+};
+
+const requireAuthentication = (WrappedComponent) => {
+    return (props) => (
+        <div>
+
+            {props.isAuthenticated ?
+
+                (<WrappedComponent {...props}/>)
+                : (
+                    <p>Please Login</p>)
+            }
+
+
+        </div>
+    )
+}
+const AdminInfo = withAdminWarning(Info);
+const AuthInfo = requireAuthentication(Info);
+ReactDOM.render(<AuthInfo isAuthenticated={true} info="This is are details"/>, document.getElementById('app'));
