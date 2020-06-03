@@ -3,7 +3,7 @@ import {Header} from "../../components/Header";
 import {shallow} from 'enzyme'
 
 let startLogout, wrapper, history;
-beforeEach(()=>{
+beforeEach(() => {
     startLogout = jest.fn();
 
     wrapper = shallow(

@@ -3,7 +3,7 @@ import {shallow} from 'enzyme';
 import {LoginPage} from "../../components/LoginPage";
 
 let startLogin, wrapper;
-beforeEach(()=>{
+beforeEach(() => {
     startLogin = jest.fn();
     wrapper = shallow(
         <LoginPage

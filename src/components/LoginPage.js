@@ -12,8 +12,8 @@ export const LoginPage = ({startLogin}) => (
     </div>
 );
 
-const mapDispatchToProps = (dispatch)=>({
-    startLogin:()=>dispatch(startLogin())
+const mapDispatchToProps = (dispatch) => ({
+    startLogin: () => dispatch(startLogin())
 });
 
 export default connect(undefined, mapDispatchToProps)(LoginPage);
