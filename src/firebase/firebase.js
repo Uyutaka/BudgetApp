@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
     databaseURL: process.env.FIREBASE_DATABASE_URL,
@@ -17,8 +17,9 @@ firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export {firebase,database as default };
+export {firebase, googleAuthProvider, database as default };
 // database.ref('expenses').push({
 //     description: 'Rent',
 //     note: 'First',
